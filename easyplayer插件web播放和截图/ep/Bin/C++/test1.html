@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="layout" content="main">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+        <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="fuck.js"></script>
+
+        <script  type="text/javascript" >
+        $(document).ready( function(){
+                $(".example1").on("click", function(event) {
+                        event.preventDefault();
+                        html2canvas(document.body, {
+                        allowTaint: true,
+                        taintTest: false,
+                        onrendered: function(canvas) {
+                            canvas.id = "mycanvas";
+                            //document.body.appendChild(canvas);
+                            //生成base64图片数据
+                            var dataUrl = canvas.toDataURL();
+                            var newImg = document.createElement("img");
+                            newImg.src =  dataUrl;
+                            document.body.appendChild(newImg);
+                        }
+                    });
+                }); 
+				
+				
+        });
+		</script>
+    </head>
+    <body>
+        <div class="" id="cut" style="background-color: #abc;">
+           <object type='application/x-vlc-plugin' id='vlc' events='True' width="500" height="540" pluginspage="http://www.videolan.org" 
+					codebase="http://downloads.videolan.org/pub/videolan/vlc-webplugins/2.0.6/npapi-vlc-2.0.6.tar.xz">
+				<param name='mrl' value='rtsp://admin:abc12345@59.47.53.210:554/H.264/ch1/main/av_stream' />
+				<param name='autoplay' value='true' />
+				<param name='loop' value='false' />
+				<param name='fullscreen' value='true' />
+			</object>
+        </div>
+        <textArea id="textArea" col="1" rows="10" ></textArea>
+        <input class="example1" type="button" id="btn1" value="截图">
+        生成界面如下：
+    </body>
+</html>

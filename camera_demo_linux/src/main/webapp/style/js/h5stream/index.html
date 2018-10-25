@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Videojs-contrib-hls.js</title>
+    <link rel="stylesheet" href="../node_modules/video.js/dist/video-js.min.css">
+    <!--<script src="../node_modules/video.js/dist/video.min.js"></script>-->
+    <script src="../node_modules/video.js/dist/video.js"></script>
+    <script src="streamedian.videojs.min.js"></script>
+</head>
+<body>
+
+<video id="player" class="video-js vjs-default-skin" height="360" width="640" controls preload="none" autoplay>
+    <source src="rtsp://admin:zc123456@192.168.1.64:554/h264/ch1/main/av_stream" type="application/x-rtsp">
+</video>
+<script>
+    var player = videojs('#player',{
+        rtsp_config:{
+            websocket_url:"wss://specforge.com/ws/"
+        }
+    })
+</script>
+</body>
+</html>
